@@ -3,23 +3,128 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-<style>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            ;
+        }
+
+        #logo_br {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav_bar {
+
+            background-color: rgb(245, 62, 62);
+            color: white;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+        }
+
+        #br_icon {
+            position: relative;
+            width: 10vw;
+            height: 10vw;
+            display: none;
+        }
+
+        #logo {
+            position: relative;
+            font-size: 30px;
+            left: 50%;
+        }
+
+        #all_sections {
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            margin-top: -.1%;
+        }
+
+        .section_color {
+            background-color: rgb(245, 62, 62);
+
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(245, 62, 62);
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 426px) {
+
+            #br_icon {
+                display: inline;
+
+            }
 
 
 
+            #all_sections {
 
-</style>
+                display: none;
+                position: static;
+                flex-direction: column;
+                justify-content: flex-end;
+                background: none;
+                box-shadow: none;
+                width: auto;
+                border-radius: 0;
+
+            }
+
+            .nav_bar {
+
+                display: list-item;
+
+
+            }
+
+            #logo {
+                /* position: relative; */
+                /* font-size: 30px; */
+                left: 1vw;
+            }
+            
+        }
+    </style>
 </head>
 
 <body>
     <span>
         <span class="nav_bar">
-            <span>
-                <h1 id="logo">Logo</h1>
-            </span>
+            <div id="logo_br">
+                <span>
+                    <h1 id="logo">Logo</h1>
+                </span>
+                <span>
+                    <img src="burgr.png" id="br_icon" onclick="toggle_menu()">
+                </span>
+
+            </div>
+
 
             <ul id="all_sections" class="all_sections">
                 <li><a href="#home">Home</a></li>
@@ -27,21 +132,32 @@
                 <li><a href="#contact">About Us</a></li>
                 <li><a href="#about">Contact Us</a></li>
             </ul>
-              
-            <span>
-                <img src="burgr.png" id="br_icon" onclick="display_list()" >
-            </span>
+            <!-- <div class="icon" onclick="toggle_menu()">
+                <i class="fa fa-bars"></i>
+            </div> -->
+
 
         </span>
 
 
 
-       
+
 
     </span>
 
 
-    <script src="main.js">
+    <script>
+
+        function toggle_menu() {
+            const element = document.getElementById("all_sections");
+
+            if (element.style.display == "none" || element.style.display == "")
+                element.style.display = "flex";
+            else
+                element.style.display = "none";
+
+        }
+
 
     </script>
 </body>
