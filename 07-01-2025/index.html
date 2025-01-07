@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .errors {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+
+        Inter First Name: <br><input type="text" id="fname">
+        <span id="name-error" class="errors"></span><br><br>
+
+        Inter Last Name: <br><input type="text" id="lname">
+        <span id="name-error2" class="errors"></span><br><br>
+
+        Inter a Bdate: <br><input type="text" id="date">
+        <span id="date-error" class="errors"></span><br><br>
+
+        Inter an Email: <br><input type="email" id="email">
+        <span id="email-error" class="errors"></span><br><br>
+
+        Confirm Email: <br><input type="Confirm email" id="con_email">
+        <span id="Confirm-error-e" class="errors"></span><br><br>
+
+        Password: <br><input type="text" id="pass">
+        <span id="pass-error" class="errors"></span><br><br>
+
+        Confirm Password: <br><input type="text" id="con_pass"><br>
+        <span id="Confirm-error" class="errors"></span><br><br>
+
+    </form>
+
+    <script>
+        // Validate inputs in real-time
+        document.getElementById("pass").addEventListener("keyup", validatePassword);
+        document.getElementById("fname").addEventListener("keyup", validname);
+        document.getElementById("lname").addEventListener("keyup", validname2);
+        document.getElementById("email").addEventListener("keyup", validemail);
+        document.getElementById("date").addEventListener("keyup", validDate);
+        document.getElementById("con_pass").addEventListener("keyup", confirm_pass);
+        document.getElementById("con_email").addEventListener("keyup", confirm_email);
+
+        function validname() {
+            const nameError = document.getElementById("name-error");
+            const fname = document.getElementById("fname").value;
+
+            nameError.textContent = "";
+            const minNumberofChars = 2;
+            const regex = /^[A-Za-z]+$/;
+            if (!regex.test(fname)) {
+                nameError.textContent = "The name must be text only "
+            }
+            else if (fname.length < minNumberofChars) {
+                nameError.textContent = "Name is too short";
+            }
+        }
+
+
+        function validname2() {
+            const nameError = document.getElementById("name-error2");
+            const lname = document.getElementById("lname").value;
+            nameError.textContent = "";
+            const minNumberofChars = 2;
+            const regex = /^[A-Za-z]+$/;
+
+            if (!regex.test(lname)) {
+                nameError.textContent = "The name must be text only "
+            }
+            else if (lname.length < minNumberofChars) {
+                nameError.textContent = "Name is too short";
+            }
+        }
+
+
+
+
+        function validatePassword() {
+            const passError = document.getElementById("pass-error");
+            const password = document.getElementById("pass").value;
+
+            passError.textContent = ""; // Clear previous errors
+
+            const minNumberofChars = 8;
+            const maxNumberofChars = 20;
+            const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+
+            if (password.length < minNumberofChars) {
+                passError.textContent = "Password is too short";
+
+            }
+            else if (password.length > maxNumberofChars) {
+                passError.textContent = "Password is too long";
+            }
+            else if (!regex.test(password)) {
+                passError.textContent = "Password must contain at least one number and one special character.";
+            }
+        }
+
+
+
+
+        function validemail() {
+            const emailError = document.getElementById("email-error");
+            const email = document.getElementById("email").value;
+            emailError.textContent = "";
+
+            const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+
+            if (!regex.test(email)) {
+                emailError.textContent = "The Email is not valid, it should be like: username@gmail.com "
+            }
+
+        }
+
+
+
+        function validDate() {
+            const dateError = document.getElementById("date-error");
+            const date = document.getElementById("date").value;
+            dateError.textContent = "";
+
+            const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[0-9]{4}$/;
+
+
+            if (!regex.test(date)) {
+                dateError.textContent = "The date should be like dd/mm/yyyy "
+            }
+
+        }
+
+
+        function confirm_pass() {
+            const conError = document.getElementById("Confirm-error");
+
+            const confirm_pass = document.getElementById("con_pass").value;
+            const password = document.getElementById("pass").value;
+            conError.textContent = "";
+
+
+            if (confirm_pass != password) {
+                conError.textContent = "The two passwords are not matching "
+            }
+
+        }
+
+        function confirm_email() {
+            const conError = document.getElementById("Confirm-error-e");
+
+            const confirm_email = document.getElementById("con_email").value;
+            const email = document.getElementById("email").value;
+            conError.textContent = "";
+
+
+            if (confirm_email != email) {
+                conError.textContent = "The two emails are not matching "
+            }
+
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+
+</html>
