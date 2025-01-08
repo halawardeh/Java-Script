@@ -1,0 +1,33 @@
+{
+    "users":[ {
+        "name": "Hala Bani Hamad",
+        "age": 23,
+        "email": "halabanihamad10@gmail.com",
+        "Profession": "Engineer"
+    },
+     {
+        "name": "Hala Bani Hamad",
+        "age": 23,
+        "email": "halabanihamad10@gmail.com",
+        "Profession": "Engineer"
+    },
+     {
+        "name": "Hala Bani Hamad",
+        "age": 23,
+        "email": "halabanihamad10@gmail.com",
+        "Profession": "Engineer"
+    },
+    {
+        "name": "Hala Bani Hamad",
+        "age": 23,
+        "email": "halabanihamad10@gmail.com",
+        "Profession": "Engineer"
+    },
+     {
+        "name": "Hala Bani Hamad",
+        "age": 23,
+        "email": "halabanihamad10@gmail.com",
+        "Profession": "Engineer"
+    }
+]
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>User Cards</h1>
+    <button onclick="dispaly_cards()"> Load Users</button>
+    <div id="output" style="display: flex; justify-content: space-evenly;"></div>
+
+
+
+
+    <script>
+
+        function dispaly_cards() {
+
+
+            const json_data = new XMLHttpRequest();// Create XMLHttpRequest object
+            json_data.open("GET", "Data.json");// Open the JSON file
+            json_data.onload = function () {
+                if (json_data.status == 200)// Check if the request is successful
+                {
+                    const data = JSON.parse(json_data.responseText); // Parse JSON string
+                    const users = data.users;
+
+
+                    data.users.forEach(user => {
+                        output.innerHTML +=
+                        `
+                        <div style= "border: 1px solid black; padding: 10px; margin:5px;">
+                        <p><strong>${user.name}</strong></p>
+                        <p><strong>Age: </strong> ${user.age}</p>
+                        <p><strong>email: </strong> ${user.email}</p>
+                        <p><strong>Profession: </strong> ${user.Profession}</p>
+                        <div> 
+                            `;
+
+
+                    });
+                }
+
+
+            }
+            json_data.send();// Send the request
+        }
+
+
+    </script>
+</body>
+
+</html>
